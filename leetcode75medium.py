@@ -14,13 +14,13 @@ def three_sum(nums):
         left = i + 1
         right = len(nums) - 1
         while left < right:
-            # calculate sum - it should be 0 in thi problem but it can be anything
+            # calculate sum - it should be 0 in this problem it can be anything
             three_sum = a + nums[left] + nums[right]
             # checking results
-            if three_sum > 0: # if results is more than target
+            if three_sum > 0:  # if results is more than target
                 # decreasing right pointer
                 right = right - 1
-            elif three_sum < 0: # if result is less than target
+            elif three_sum < 0:  # if result is less than target
                 # increasing left pointer
                 left = left + 1
             else:
@@ -32,3 +32,37 @@ def three_sum(nums):
                 while nums[left] == nums[left + 1] and left < right:
                     left = left + 1
     return result
+
+
+class Node:
+    def __init__(self, value=0, next=None):
+        self.value = value
+        self.next = next
+
+
+def remove_nth_from_end(head, n):
+    """
+        Given the head of a linked list, remove the nth node from the end of the list
+        and return its head.
+
+        It can be solved with 2 pointers when right is shifted by nth elements
+    """
+    dummy = Node(0, head)
+    left = dummy
+    right = dummy
+    # right is shifted by n
+    while n > 0 and right:
+        right = right.next
+        n = n - 1
+
+    # next step shift both pointers till
+
+    while right:
+        left = left.next
+        right = right.next
+
+    # when right reaches Null - left is on the node prev to the node we need to delete
+    # delete next node
+    left.next = left.next.next
+
+    return dummy.next
