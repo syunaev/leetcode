@@ -35,8 +35,8 @@ def three_sum(nums):
 
 
 class Node:
-    def __init__(self, value=0, next=None):
-        self.value = value
+    def __init__(self, val=0, next=None):
+        self.val = val
         self.next = next
 
 

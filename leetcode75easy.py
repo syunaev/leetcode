@@ -9,3 +9,17 @@ def two_sum(nums, target):
         if second_value in values:
             return [values.get(second_value), i]
         values[nums[i]] = i
+
+
+def runningSum(nums: List[int]) -> List[int]:
+    """
+    https://leetcode.com/problems/running-sum-of-1d-array/
+    :param nums:
+    :return:
+    """
+    result = [nums[0]]
+    for i in range(1, len(nums)):
+        result.append(result[i - 1] + nums[i])
+
+    return result
+
